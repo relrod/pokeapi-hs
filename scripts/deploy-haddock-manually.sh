@@ -8,7 +8,7 @@ cabal haddock
 pushd "$f/pokeapi-hs.git"
   git checkout gh-pages && git rm -rf *
 popd
-mv dist/doc/html/pokeapi-hs/* "$f/pokeapi-hs.git/"
+mv dist/doc/html/pokeapi/* "$f/pokeapi-hs.git/"
 pushd "$f/pokeapi-hs.git"
   git add -A
   git commit -m "Manual docs deploy."
