@@ -36,10 +36,16 @@ processTableLine line =
 
 fieldText :: T.Text -> Field -> T.Text
 fieldText ty (Field i d t) =
-  fixCase ty `mappend` "_" `mappend` rename i `mappend` " :: " `mappend` hsType t `mappend` " -- ^ " `mappend` d
-  where fixCase ty =
-          let first = T.head ty
-          in T.singleton (toLower first) `mappend` T.drop 1 ty
+  fixCase ty `mappend` "_" `mappend` rename i `mappend` " :: " `mappend` fieldType `mappend` " -- ^ " `mappend` d
+  where
+    fixCase ty =
+      let first = T.head ty
+      in T.singleton (toLower first) `mappend` T.drop 1 ty
+
+    fieldType =
+      if nullableField ty i
+      then "Maybe " `mappend` hsType t
+      else hsType t
 
 rename :: T.Text -> T.Text
 rename "default" = "default'"
@@ -61,6 +67,13 @@ renameType :: T.Text -> T.Text
 renameType x
   | "<aid=\"resourcename\"></a>" `T.isPrefixOf` x = T.drop 24 x
   | otherwise = x
+
+nullableField :: T.Text -> T.Text -> Bool
+nullableField "PokemonSprites" "front_female" = True
+nullableField "PokemonSprites" "front_shiny_female" = True
+nullableField "PokemonSprites" "back_female" = True
+nullableField "PokemonSprites" "back_shiny_female" = True
+nullableField _ _ = False
 
 generateFromJsonInstance :: T.Text -> [Field] -> IO ()
 generateFromJsonInstance ty flds = do
