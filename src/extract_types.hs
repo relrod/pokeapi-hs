@@ -74,6 +74,19 @@ nullableField "PokemonSprites" "front_female" = True
 nullableField "PokemonSprites" "front_shiny_female" = True
 nullableField "PokemonSprites" "back_female" = True
 nullableField "PokemonSprites" "back_shiny_female" = True
+nullableField "EvolutionDetails" "min_beauty" = True
+nullableField "EvolutionDetails" "gender" = True
+nullableField "EvolutionDetails" "relative_physical_stats" = True
+nullableField "EvolutionDetails" "item" = True
+nullableField "EvolutionDetails" "known_move_type" = True
+nullableField "EvolutionDetails" "min_affection" = True
+nullableField "EvolutionDetails" "party_type" = True
+nullableField "EvolutionDetails" "trade_species" = True
+nullableField "EvolutionDetails" "party_species" = True
+nullableField "EvolutionDetails" "min_happiness" = True
+nullableField "EvolutionDetails" "held_item" = True
+nullableField "EvolutionDetails" "known_move" = True
+nullableField "EvolutionDetails" "location" = True
 nullableField _ _ = False
 
 generateFromJsonInstance :: T.Text -> [Field] -> IO ()
