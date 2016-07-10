@@ -62,20 +62,37 @@ renameType x
   | "<aid=\"resourcename\"></a>" `T.isPrefixOf` x = T.drop 24 x
   | otherwise = x
 
+generateFromJsonInstance :: T.Text -> [Field] -> IO ()
+generateFromJsonInstance ty flds = do
+  T.putStrLn $ "instance FromJSON " `mappend` ty `mappend` " where"
+  T.putStrLn $ "  parseJSON (Object o) ="
+  T.putStrLn $ "    " `mappend` ty `mappend` " <$>"
+  T.putStr "          "
+  let vs = intersperse "<*>" $
+             map (\field -> "o .: \"" `mappend` identifier field `mappend` "\"") flds
+  mapM_ (\x -> if x == "<*>" then T.putStr ("      <*> ") else T.putStrLn x) vs
+  T.putStrLn $ "  parseJSON _ = mzero\n"
+
 export :: (T.Text, [T.Text]) -> IO ()
-export (ty', tbl) = do
+export (ty', tbl') = do
   let ty = renameType ty'
+  let tbl = drop 2 tbl'
+  let fields = map processTableLine tbl
   T.putStrLn $ "data " `mappend` ty
   T.putStrLn $ "  = " `mappend` ty `mappend` " {"
   T.putStr "      "
-  let stuff = intersperse "," $ map (\x -> fieldText ty . processTableLine $ x) (drop 2 tbl)
+  let stuff = intersperse "," $ map (\x -> fieldText ty $ x) fields
   mapM_ (\x -> if x == "," then T.putStr ("    , ") else T.putStrLn x) stuff
   T.putStrLn $ "  } deriving (Eq, Ord, Show)\n"
+  generateFromJsonInstance ty fields
 
 header :: IO ()
 header = do
+  putStrLn "{-# LANGUAGE OverloadedStrings #-}"
   putStrLn "-- NOTE! This module is automatically generated!"
   putStrLn "module Games.Pokemon.Pokeapi.Types where"
+  putStrLn "import Data.Aeson"
+  putStrLn "import Control.Monad (mzero)"
 
 main :: IO ()
 main = do
