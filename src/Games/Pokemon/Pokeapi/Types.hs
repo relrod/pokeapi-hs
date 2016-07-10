@@ -1336,7 +1336,7 @@ instance FromJSON PokemonAbility where
 data PokemonType
   = PokemonType {
       pokemonType_slot :: Integer -- ^ The order the Pokémon's types are listed in
-    , pokemonType_type :: String -- ^ The type the referenced Pokémon has
+    , pokemonType_type :: NamedAPIResource -- ^ The type the referenced Pokémon has
   } deriving (Eq, Ord, Show)
 
 instance FromJSON PokemonType where
@@ -1389,7 +1389,7 @@ data PokemonMoveVersion
   = PokemonMoveVersion {
       pokemonMoveVersion_move_learn_method :: NamedAPIResource -- ^ The method by which the move is learned
     , pokemonMoveVersion_version_group :: NamedAPIResource -- ^ The version group in which the move is learned
-    , pokemonMoveVersion_level_learned_at :: String -- ^ The minimum level to learn the move
+    , pokemonMoveVersion_level_learned_at :: Integer -- ^ The minimum level to learn the move
   } deriving (Eq, Ord, Show)
 
 instance FromJSON PokemonMoveVersion where
@@ -1419,12 +1419,12 @@ data PokemonSprites
   = PokemonSprites {
       pokemonSprites_front_default :: String -- ^ The default depiction of this Pokémon from the front in battle
     , pokemonSprites_front_shiny :: String -- ^ The shiny depiction of this Pokémon from the front in battle
-    , pokemonSprites_front_female :: String -- ^ The female depiction of this Pokémon from the front in battle
-    , pokemonSprites_front_shiny_female :: String -- ^ The shiny female depiction of this Pokémon from the front in battle
+    , pokemonSprites_front_female :: Maybe String -- ^ The female depiction of this Pokémon from the front in battle
+    , pokemonSprites_front_shiny_female :: Maybe String -- ^ The shiny female depiction of this Pokémon from the front in battle
     , pokemonSprites_back_default :: String -- ^ The default depiction of this Pokémon from the back in battle
     , pokemonSprites_back_shiny :: String -- ^ The shiny depiction of this Pokémon from the back in battle
-    , pokemonSprites_back_female :: String -- ^ The female depiction of this Pokémon from the back in battle
-    , pokemonSprites_back_shiny_female :: String -- ^ The shiny female depiction of this Pokémon from the back in battle
+    , pokemonSprites_back_female :: Maybe String -- ^ The female depiction of this Pokémon from the back in battle
+    , pokemonSprites_back_shiny_female :: Maybe String -- ^ The shiny female depiction of this Pokémon from the back in battle
   } deriving (Eq, Ord, Show)
 
 instance FromJSON PokemonSprites where
