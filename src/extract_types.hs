@@ -79,8 +79,8 @@ generateFromJsonInstance :: T.Text -> [Field] -> IO ()
 generateFromJsonInstance ty flds = do
   T.putStrLn $ "instance FromJSON " `mappend` ty `mappend` " where"
   T.putStrLn $ "  parseJSON (Object o) ="
-  T.putStrLn $ "    " `mappend` ty `mappend` " <$>"
-  T.putStr "          "
+  T.putStrLn $ "    " `mappend` ty
+  T.putStr "      <$> "
   let vs = intersperse "<*>" $
              map (\field -> "o .: \"" `mappend` identifier field `mappend` "\"") flds
   mapM_ (\x -> if x == "<*>" then T.putStr ("      <*> ") else T.putStrLn x) vs

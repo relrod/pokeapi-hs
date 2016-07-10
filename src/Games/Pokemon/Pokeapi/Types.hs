@@ -13,8 +13,8 @@ data APIResourceList
 
 instance FromJSON APIResourceList where
   parseJSON (Object o) =
-    APIResourceList <$>
-          o .: "count"
+    APIResourceList
+      <$> o .: "count"
       <*> o .: "next"
       <*> o .: "previous"
       <*> o .: "results"
@@ -30,8 +30,8 @@ data NamedAPIResourceList
 
 instance FromJSON NamedAPIResourceList where
   parseJSON (Object o) =
-    NamedAPIResourceList <$>
-          o .: "count"
+    NamedAPIResourceList
+      <$> o .: "count"
       <*> o .: "next"
       <*> o .: "previous"
       <*> o .: "results"
@@ -55,8 +55,8 @@ data Berry
 
 instance FromJSON Berry where
   parseJSON (Object o) =
-    Berry <$>
-          o .: "id"
+    Berry
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "growth_time"
       <*> o .: "max_harvest"
@@ -78,8 +78,8 @@ data BerryFlavorMap
 
 instance FromJSON BerryFlavorMap where
   parseJSON (Object o) =
-    BerryFlavorMap <$>
-          o .: "potency"
+    BerryFlavorMap
+      <$> o .: "potency"
       <*> o .: "flavor"
   parseJSON _ = mzero
 
@@ -93,8 +93,8 @@ data BerryFirmness
 
 instance FromJSON BerryFirmness where
   parseJSON (Object o) =
-    BerryFirmness <$>
-          o .: "id"
+    BerryFirmness
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "berries"
       <*> o .: "names"
@@ -111,8 +111,8 @@ data BerryFlavor
 
 instance FromJSON BerryFlavor where
   parseJSON (Object o) =
-    BerryFlavor <$>
-          o .: "id"
+    BerryFlavor
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "berries"
       <*> o .: "contest_type"
@@ -127,8 +127,8 @@ data FlavorBerryMap
 
 instance FromJSON FlavorBerryMap where
   parseJSON (Object o) =
-    FlavorBerryMap <$>
-          o .: "potency"
+    FlavorBerryMap
+      <$> o .: "potency"
       <*> o .: "berry"
   parseJSON _ = mzero
 
@@ -142,8 +142,8 @@ data ContestType
 
 instance FromJSON ContestType where
   parseJSON (Object o) =
-    ContestType <$>
-          o .: "id"
+    ContestType
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "berry_flavor"
       <*> o .: "names"
@@ -158,8 +158,8 @@ data ContestName
 
 instance FromJSON ContestName where
   parseJSON (Object o) =
-    ContestName <$>
-          o .: "name"
+    ContestName
+      <$> o .: "name"
       <*> o .: "color"
       <*> o .: "language"
   parseJSON _ = mzero
@@ -175,8 +175,8 @@ data ContestEffect
 
 instance FromJSON ContestEffect where
   parseJSON (Object o) =
-    ContestEffect <$>
-          o .: "id"
+    ContestEffect
+      <$> o .: "id"
       <*> o .: "appeal"
       <*> o .: "jam"
       <*> o .: "effect_entries"
@@ -193,8 +193,8 @@ data SuperContestEffect
 
 instance FromJSON SuperContestEffect where
   parseJSON (Object o) =
-    SuperContestEffect <$>
-          o .: "id"
+    SuperContestEffect
+      <$> o .: "id"
       <*> o .: "appeal"
       <*> o .: "flavor_text_entries"
       <*> o .: "moves"
@@ -210,8 +210,8 @@ data EncounterMethod
 
 instance FromJSON EncounterMethod where
   parseJSON (Object o) =
-    EncounterMethod <$>
-          o .: "id"
+    EncounterMethod
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "order"
       <*> o .: "names"
@@ -227,8 +227,8 @@ data EncounterCondition
 
 instance FromJSON EncounterCondition where
   parseJSON (Object o) =
-    EncounterCondition <$>
-          o .: "id"
+    EncounterCondition
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "names"
       <*> o .: "values"
@@ -244,8 +244,8 @@ data EncounterConditionValue
 
 instance FromJSON EncounterConditionValue where
   parseJSON (Object o) =
-    EncounterConditionValue <$>
-          o .: "id"
+    EncounterConditionValue
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "condition"
       <*> o .: "names"
@@ -260,8 +260,8 @@ data EvolutionChain
 
 instance FromJSON EvolutionChain where
   parseJSON (Object o) =
-    EvolutionChain <$>
-          o .: "id"
+    EvolutionChain
+      <$> o .: "id"
       <*> o .: "baby_trigger_item"
       <*> o .: "chain"
   parseJSON _ = mzero
@@ -276,8 +276,8 @@ data ChainLink
 
 instance FromJSON ChainLink where
   parseJSON (Object o) =
-    ChainLink <$>
-          o .: "is_baby"
+    ChainLink
+      <$> o .: "is_baby"
       <*> o .: "species"
       <*> o .: "evolution_details"
       <*> o .: "evolves_to"
@@ -307,8 +307,8 @@ data EvolutionDetail
 
 instance FromJSON EvolutionDetail where
   parseJSON (Object o) =
-    EvolutionDetail <$>
-          o .: "item"
+    EvolutionDetail
+      <$> o .: "item"
       <*> o .: "trigger"
       <*> o .: "gender"
       <*> o .: "held_item"
@@ -338,8 +338,8 @@ data EvolutionTrigger
 
 instance FromJSON EvolutionTrigger where
   parseJSON (Object o) =
-    EvolutionTrigger <$>
-          o .: "id"
+    EvolutionTrigger
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "names"
       <*> o .: "pokemon_species"
@@ -360,8 +360,8 @@ data Generation
 
 instance FromJSON Generation where
   parseJSON (Object o) =
-    Generation <$>
-          o .: "id"
+    Generation
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "abilities"
       <*> o .: "names"
@@ -386,8 +386,8 @@ data Pokedex
 
 instance FromJSON Pokedex where
   parseJSON (Object o) =
-    Pokedex <$>
-          o .: "id"
+    Pokedex
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "is_main_series"
       <*> o .: "descriptions"
@@ -405,8 +405,8 @@ data PokemonEntry
 
 instance FromJSON PokemonEntry where
   parseJSON (Object o) =
-    PokemonEntry <$>
-          o .: "entry_number"
+    PokemonEntry
+      <$> o .: "entry_number"
       <*> o .: "pokemon_species"
   parseJSON _ = mzero
 
@@ -420,8 +420,8 @@ data Version
 
 instance FromJSON Version where
   parseJSON (Object o) =
-    Version <$>
-          o .: "id"
+    Version
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "names"
       <*> o .: "version_group"
@@ -441,8 +441,8 @@ data VersionGroup
 
 instance FromJSON VersionGroup where
   parseJSON (Object o) =
-    VersionGroup <$>
-          o .: "id"
+    VersionGroup
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "order"
       <*> o .: "generation"
@@ -473,8 +473,8 @@ data Item
 
 instance FromJSON Item where
   parseJSON (Object o) =
-    Item <$>
-          o .: "id"
+    Item
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "cost"
       <*> o .: "fling_power"
@@ -498,8 +498,8 @@ data ItemSprites
 
 instance FromJSON ItemSprites where
   parseJSON (Object o) =
-    ItemSprites <$>
-          o .: "default"
+    ItemSprites
+      <$> o .: "default"
   parseJSON _ = mzero
 
 data ItemHolderPokemon
@@ -510,8 +510,8 @@ data ItemHolderPokemon
 
 instance FromJSON ItemHolderPokemon where
   parseJSON (Object o) =
-    ItemHolderPokemon <$>
-          o .: "pokemon"
+    ItemHolderPokemon
+      <$> o .: "pokemon"
       <*> o .: "version_details"
   parseJSON _ = mzero
 
@@ -523,8 +523,8 @@ data ItemHolderPokemonVersionDetail
 
 instance FromJSON ItemHolderPokemonVersionDetail where
   parseJSON (Object o) =
-    ItemHolderPokemonVersionDetail <$>
-          o .: "rarity"
+    ItemHolderPokemonVersionDetail
+      <$> o .: "rarity"
       <*> o .: "version"
   parseJSON _ = mzero
 
@@ -539,8 +539,8 @@ data ItemAttribute
 
 instance FromJSON ItemAttribute where
   parseJSON (Object o) =
-    ItemAttribute <$>
-          o .: "id"
+    ItemAttribute
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "items"
       <*> o .: "names"
@@ -558,8 +558,8 @@ data ItemCategory
 
 instance FromJSON ItemCategory where
   parseJSON (Object o) =
-    ItemCategory <$>
-          o .: "id"
+    ItemCategory
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "items"
       <*> o .: "names"
@@ -576,8 +576,8 @@ data ItemFlingEffect
 
 instance FromJSON ItemFlingEffect where
   parseJSON (Object o) =
-    ItemFlingEffect <$>
-          o .: "id"
+    ItemFlingEffect
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "effect_entries"
       <*> o .: "items"
@@ -593,8 +593,8 @@ data ItemPocket
 
 instance FromJSON ItemPocket where
   parseJSON (Object o) =
-    ItemPocket <$>
-          o .: "id"
+    ItemPocket
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "categories"
       <*> o .: "names"
@@ -629,8 +629,8 @@ data Move
 
 instance FromJSON Move where
   parseJSON (Object o) =
-    Move <$>
-          o .: "id"
+    Move
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "accuracy"
       <*> o .: "effect_chance"
@@ -663,8 +663,8 @@ data ContestComboSets
 
 instance FromJSON ContestComboSets where
   parseJSON (Object o) =
-    ContestComboSets <$>
-          o .: "normal"
+    ContestComboSets
+      <$> o .: "normal"
       <*> o .: "super"
   parseJSON _ = mzero
 
@@ -676,8 +676,8 @@ data ContestComboDetail
 
 instance FromJSON ContestComboDetail where
   parseJSON (Object o) =
-    ContestComboDetail <$>
-          o .: "use_before"
+    ContestComboDetail
+      <$> o .: "use_before"
       <*> o .: "use_after"
   parseJSON _ = mzero
 
@@ -690,8 +690,8 @@ data MoveFlavorText
 
 instance FromJSON MoveFlavorText where
   parseJSON (Object o) =
-    MoveFlavorText <$>
-          o .: "flavor_text"
+    MoveFlavorText
+      <$> o .: "flavor_text"
       <*> o .: "language"
       <*> o .: "version_group"
   parseJSON _ = mzero
@@ -714,8 +714,8 @@ data MoveMetaData
 
 instance FromJSON MoveMetaData where
   parseJSON (Object o) =
-    MoveMetaData <$>
-          o .: "ailment"
+    MoveMetaData
+      <$> o .: "ailment"
       <*> o .: "category"
       <*> o .: "min_hits"
       <*> o .: "max_hits"
@@ -737,8 +737,8 @@ data MoveStatChange
 
 instance FromJSON MoveStatChange where
   parseJSON (Object o) =
-    MoveStatChange <$>
-          o .: "change"
+    MoveStatChange
+      <$> o .: "change"
       <*> o .: "stat"
   parseJSON _ = mzero
 
@@ -755,8 +755,8 @@ data PastMoveStatValues
 
 instance FromJSON PastMoveStatValues where
   parseJSON (Object o) =
-    PastMoveStatValues <$>
-          o .: "accuracy"
+    PastMoveStatValues
+      <$> o .: "accuracy"
       <*> o .: "effect_chance"
       <*> o .: "power"
       <*> o .: "pp"
@@ -775,8 +775,8 @@ data MoveAilment
 
 instance FromJSON MoveAilment where
   parseJSON (Object o) =
-    MoveAilment <$>
-          o .: "id"
+    MoveAilment
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "moves"
       <*> o .: "names"
@@ -791,8 +791,8 @@ data MoveBattleStyle
 
 instance FromJSON MoveBattleStyle where
   parseJSON (Object o) =
-    MoveBattleStyle <$>
-          o .: "id"
+    MoveBattleStyle
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "names"
   parseJSON _ = mzero
@@ -807,8 +807,8 @@ data MoveCategory
 
 instance FromJSON MoveCategory where
   parseJSON (Object o) =
-    MoveCategory <$>
-          o .: "id"
+    MoveCategory
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "moves"
       <*> o .: "descriptions"
@@ -825,8 +825,8 @@ data MoveDamageClass
 
 instance FromJSON MoveDamageClass where
   parseJSON (Object o) =
-    MoveDamageClass <$>
-          o .: "id"
+    MoveDamageClass
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "descriptions"
       <*> o .: "moves"
@@ -844,8 +844,8 @@ data MoveLearnMethod
 
 instance FromJSON MoveLearnMethod where
   parseJSON (Object o) =
-    MoveLearnMethod <$>
-          o .: "id"
+    MoveLearnMethod
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "descriptions"
       <*> o .: "names"
@@ -863,8 +863,8 @@ data MoveTarget
 
 instance FromJSON MoveTarget where
   parseJSON (Object o) =
-    MoveTarget <$>
-          o .: "id"
+    MoveTarget
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "descriptions"
       <*> o .: "moves"
@@ -883,8 +883,8 @@ data Location
 
 instance FromJSON Location where
   parseJSON (Object o) =
-    Location <$>
-          o .: "id"
+    Location
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "region"
       <*> o .: "names"
@@ -905,8 +905,8 @@ data LocationArea
 
 instance FromJSON LocationArea where
   parseJSON (Object o) =
-    LocationArea <$>
-          o .: "id"
+    LocationArea
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "game_index"
       <*> o .: "encounter_method_rates"
@@ -923,8 +923,8 @@ data EncounterMethodRate
 
 instance FromJSON EncounterMethodRate where
   parseJSON (Object o) =
-    EncounterMethodRate <$>
-          o .: "encounter_method"
+    EncounterMethodRate
+      <$> o .: "encounter_method"
       <*> o .: "version_details"
   parseJSON _ = mzero
 
@@ -936,8 +936,8 @@ data EncounterVersionDetails
 
 instance FromJSON EncounterVersionDetails where
   parseJSON (Object o) =
-    EncounterVersionDetails <$>
-          o .: "rate"
+    EncounterVersionDetails
+      <$> o .: "rate"
       <*> o .: "version"
   parseJSON _ = mzero
 
@@ -949,8 +949,8 @@ data PokemonEncounter
 
 instance FromJSON PokemonEncounter where
   parseJSON (Object o) =
-    PokemonEncounter <$>
-          o .: "pokemon"
+    PokemonEncounter
+      <$> o .: "pokemon"
       <*> o .: "version_details"
   parseJSON _ = mzero
 
@@ -964,8 +964,8 @@ data PalParkArea
 
 instance FromJSON PalParkArea where
   parseJSON (Object o) =
-    PalParkArea <$>
-          o .: "id"
+    PalParkArea
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "names"
       <*> o .: "pokemon_encounters"
@@ -980,8 +980,8 @@ data PalParkEncounterSpecies
 
 instance FromJSON PalParkEncounterSpecies where
   parseJSON (Object o) =
-    PalParkEncounterSpecies <$>
-          o .: "base_score"
+    PalParkEncounterSpecies
+      <$> o .: "base_score"
       <*> o .: "rate"
       <*> o .: "pokemon_species"
   parseJSON _ = mzero
@@ -999,8 +999,8 @@ data Region
 
 instance FromJSON Region where
   parseJSON (Object o) =
-    Region <$>
-          o .: "id"
+    Region
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "locations"
       <*> o .: "main_generation"
@@ -1024,8 +1024,8 @@ data Ability
 
 instance FromJSON Ability where
   parseJSON (Object o) =
-    Ability <$>
-          o .: "id"
+    Ability
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "is_main_series"
       <*> o .: "generation"
@@ -1044,8 +1044,8 @@ data AbilityEffectChange
 
 instance FromJSON AbilityEffectChange where
   parseJSON (Object o) =
-    AbilityEffectChange <$>
-          o .: "effect_entries"
+    AbilityEffectChange
+      <$> o .: "effect_entries"
       <*> o .: "version_group"
   parseJSON _ = mzero
 
@@ -1058,8 +1058,8 @@ data AbilityFlavorText
 
 instance FromJSON AbilityFlavorText where
   parseJSON (Object o) =
-    AbilityFlavorText <$>
-          o .: "flavor_text"
+    AbilityFlavorText
+      <$> o .: "flavor_text"
       <*> o .: "language"
       <*> o .: "version_group"
   parseJSON _ = mzero
@@ -1073,8 +1073,8 @@ data AbilityPokemon
 
 instance FromJSON AbilityPokemon where
   parseJSON (Object o) =
-    AbilityPokemon <$>
-          o .: "is_hidden"
+    AbilityPokemon
+      <$> o .: "is_hidden"
       <*> o .: "slot"
       <*> o .: "pokemon"
   parseJSON _ = mzero
@@ -1089,8 +1089,8 @@ data Characteristic
 
 instance FromJSON Characteristic where
   parseJSON (Object o) =
-    Characteristic <$>
-          o .: "id"
+    Characteristic
+      <$> o .: "id"
       <*> o .: "gene_modulo"
       <*> o .: "possible_values"
       <*> o .: "descriptions"
@@ -1106,8 +1106,8 @@ data EggGroup
 
 instance FromJSON EggGroup where
   parseJSON (Object o) =
-    EggGroup <$>
-          o .: "id"
+    EggGroup
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "names"
       <*> o .: "pokemon_species"
@@ -1123,8 +1123,8 @@ data Gender
 
 instance FromJSON Gender where
   parseJSON (Object o) =
-    Gender <$>
-          o .: "id"
+    Gender
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "pokemon_species_details"
       <*> o .: "required_for_evolution"
@@ -1138,8 +1138,8 @@ data PokemonSpeciesGender
 
 instance FromJSON PokemonSpeciesGender where
   parseJSON (Object o) =
-    PokemonSpeciesGender <$>
-          o .: "rate"
+    PokemonSpeciesGender
+      <$> o .: "rate"
       <*> o .: "pokemon_species"
   parseJSON _ = mzero
 
@@ -1155,8 +1155,8 @@ data GrowthRate
 
 instance FromJSON GrowthRate where
   parseJSON (Object o) =
-    GrowthRate <$>
-          o .: "id"
+    GrowthRate
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "formula"
       <*> o .: "descriptions"
@@ -1172,8 +1172,8 @@ data GrowthRateExperienceLevel
 
 instance FromJSON GrowthRateExperienceLevel where
   parseJSON (Object o) =
-    GrowthRateExperienceLevel <$>
-          o .: "level"
+    GrowthRateExperienceLevel
+      <$> o .: "level"
       <*> o .: "experience"
   parseJSON _ = mzero
 
@@ -1192,8 +1192,8 @@ data Nature
 
 instance FromJSON Nature where
   parseJSON (Object o) =
-    Nature <$>
-          o .: "id"
+    Nature
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "decreased_stat"
       <*> o .: "increased_stat"
@@ -1212,8 +1212,8 @@ data NatureStatChange
 
 instance FromJSON NatureStatChange where
   parseJSON (Object o) =
-    NatureStatChange <$>
-          o .: "max_change"
+    NatureStatChange
+      <$> o .: "max_change"
       <*> o .: "pokeathlon_stat"
   parseJSON _ = mzero
 
@@ -1226,8 +1226,8 @@ data MoveBattleStylePreference
 
 instance FromJSON MoveBattleStylePreference where
   parseJSON (Object o) =
-    MoveBattleStylePreference <$>
-          o .: "low_hp_preference"
+    MoveBattleStylePreference
+      <$> o .: "low_hp_preference"
       <*> o .: "high_hp_preference"
       <*> o .: "move_battle_style"
   parseJSON _ = mzero
@@ -1242,8 +1242,8 @@ data PokeathlonStat
 
 instance FromJSON PokeathlonStat where
   parseJSON (Object o) =
-    PokeathlonStat <$>
-          o .: "id"
+    PokeathlonStat
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "names"
       <*> o .: "affecting_natures"
@@ -1257,8 +1257,8 @@ data NaturePokeathlonStatAffectSets
 
 instance FromJSON NaturePokeathlonStatAffectSets where
   parseJSON (Object o) =
-    NaturePokeathlonStatAffectSets <$>
-          o .: "increase"
+    NaturePokeathlonStatAffectSets
+      <$> o .: "increase"
       <*> o .: "decrease"
   parseJSON _ = mzero
 
@@ -1270,8 +1270,8 @@ data NaturePokeathlonStatAffect
 
 instance FromJSON NaturePokeathlonStatAffect where
   parseJSON (Object o) =
-    NaturePokeathlonStatAffect <$>
-          o .: "max_change"
+    NaturePokeathlonStatAffect
+      <$> o .: "max_change"
       <*> o .: "nature"
   parseJSON _ = mzero
 
@@ -1298,8 +1298,8 @@ data Pokemon
 
 instance FromJSON Pokemon where
   parseJSON (Object o) =
-    Pokemon <$>
-          o .: "id"
+    Pokemon
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "base_experience"
       <*> o .: "height"
@@ -1327,8 +1327,8 @@ data PokemonAbility
 
 instance FromJSON PokemonAbility where
   parseJSON (Object o) =
-    PokemonAbility <$>
-          o .: "is_hidden"
+    PokemonAbility
+      <$> o .: "is_hidden"
       <*> o .: "slot"
       <*> o .: "ability"
   parseJSON _ = mzero
@@ -1341,8 +1341,8 @@ data PokemonType
 
 instance FromJSON PokemonType where
   parseJSON (Object o) =
-    PokemonType <$>
-          o .: "slot"
+    PokemonType
+      <$> o .: "slot"
       <*> o .: "type"
   parseJSON _ = mzero
 
@@ -1354,8 +1354,8 @@ data PokemonHeldItem
 
 instance FromJSON PokemonHeldItem where
   parseJSON (Object o) =
-    PokemonHeldItem <$>
-          o .: "item"
+    PokemonHeldItem
+      <$> o .: "item"
       <*> o .: "version_details"
   parseJSON _ = mzero
 
@@ -1367,8 +1367,8 @@ data PokemonHeldItemVersion
 
 instance FromJSON PokemonHeldItemVersion where
   parseJSON (Object o) =
-    PokemonHeldItemVersion <$>
-          o .: "version"
+    PokemonHeldItemVersion
+      <$> o .: "version"
       <*> o .: "rarity"
   parseJSON _ = mzero
 
@@ -1380,8 +1380,8 @@ data PokemonMove
 
 instance FromJSON PokemonMove where
   parseJSON (Object o) =
-    PokemonMove <$>
-          o .: "move"
+    PokemonMove
+      <$> o .: "move"
       <*> o .: "version_group_details"
   parseJSON _ = mzero
 
@@ -1389,13 +1389,13 @@ data PokemonMoveVersion
   = PokemonMoveVersion {
       pokemonMoveVersion_move_learn_method :: NamedAPIResource -- ^ The method by which the move is learned
     , pokemonMoveVersion_version_group :: NamedAPIResource -- ^ The version group in which the move is learned
-    , pokemonMoveVersion_level_learned_at :: Integer -- ^ The minimum level to learn the move
+    , pokemonMoveVersion_level_learned_at :: String -- ^ The minimum level to learn the move
   } deriving (Eq, Ord, Show)
 
 instance FromJSON PokemonMoveVersion where
   parseJSON (Object o) =
-    PokemonMoveVersion <$>
-          o .: "move_learn_method"
+    PokemonMoveVersion
+      <$> o .: "move_learn_method"
       <*> o .: "version_group"
       <*> o .: "level_learned_at"
   parseJSON _ = mzero
@@ -1409,8 +1409,8 @@ data PokemonStat
 
 instance FromJSON PokemonStat where
   parseJSON (Object o) =
-    PokemonStat <$>
-          o .: "stat"
+    PokemonStat
+      <$> o .: "stat"
       <*> o .: "effort"
       <*> o .: "base_stat"
   parseJSON _ = mzero
@@ -1429,8 +1429,8 @@ data PokemonSprites
 
 instance FromJSON PokemonSprites where
   parseJSON (Object o) =
-    PokemonSprites <$>
-          o .: "front_default"
+    PokemonSprites
+      <$> o .: "front_default"
       <*> o .: "front_shiny"
       <*> o .: "front_female"
       <*> o .: "front_shiny_female"
@@ -1448,8 +1448,8 @@ data LocationAreaEncounter
 
 instance FromJSON LocationAreaEncounter where
   parseJSON (Object o) =
-    LocationAreaEncounter <$>
-          o .: "location_area"
+    LocationAreaEncounter
+      <$> o .: "location_area"
       <*> o .: "version_details"
   parseJSON _ = mzero
 
@@ -1463,8 +1463,8 @@ data PokemonColor
 
 instance FromJSON PokemonColor where
   parseJSON (Object o) =
-    PokemonColor <$>
-          o .: "id"
+    PokemonColor
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "names"
       <*> o .: "pokemon_species"
@@ -1489,8 +1489,8 @@ data PokemonForm
 
 instance FromJSON PokemonForm where
   parseJSON (Object o) =
-    PokemonForm <$>
-          o .: "id"
+    PokemonForm
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "order"
       <*> o .: "form_order"
@@ -1515,8 +1515,8 @@ data PokemonFormSprites
 
 instance FromJSON PokemonFormSprites where
   parseJSON (Object o) =
-    PokemonFormSprites <$>
-          o .: "front_default"
+    PokemonFormSprites
+      <$> o .: "front_default"
       <*> o .: "front_shiny"
       <*> o .: "back_default"
       <*> o .: "back_shiny"
@@ -1532,8 +1532,8 @@ data PokemonHabitat
 
 instance FromJSON PokemonHabitat where
   parseJSON (Object o) =
-    PokemonHabitat <$>
-          o .: "id"
+    PokemonHabitat
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "names"
       <*> o .: "pokemon_species"
@@ -1550,8 +1550,8 @@ data PokemonShape
 
 instance FromJSON PokemonShape where
   parseJSON (Object o) =
-    PokemonShape <$>
-          o .: "id"
+    PokemonShape
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "awesome_names"
       <*> o .: "names"
@@ -1566,8 +1566,8 @@ data AwesomeName
 
 instance FromJSON AwesomeName where
   parseJSON (Object o) =
-    AwesomeName <$>
-          o .: "awesome_name"
+    AwesomeName
+      <$> o .: "awesome_name"
       <*> o .: "language"
   parseJSON _ = mzero
 
@@ -1602,8 +1602,8 @@ data PokemonSpecies
 
 instance FromJSON PokemonSpecies where
   parseJSON (Object o) =
-    PokemonSpecies <$>
-          o .: "id"
+    PokemonSpecies
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "order"
       <*> o .: "gender_rate"
@@ -1638,8 +1638,8 @@ data Genus
 
 instance FromJSON Genus where
   parseJSON (Object o) =
-    Genus <$>
-          o .: "genus"
+    Genus
+      <$> o .: "genus"
       <*> o .: "language"
   parseJSON _ = mzero
 
@@ -1651,8 +1651,8 @@ data PokemonSpeciesDexEntry
 
 instance FromJSON PokemonSpeciesDexEntry where
   parseJSON (Object o) =
-    PokemonSpeciesDexEntry <$>
-          o .: "entry_number"
+    PokemonSpeciesDexEntry
+      <$> o .: "entry_number"
       <*> o .: "pokedex"
   parseJSON _ = mzero
 
@@ -1665,8 +1665,8 @@ data PalParkEncounterArea
 
 instance FromJSON PalParkEncounterArea where
   parseJSON (Object o) =
-    PalParkEncounterArea <$>
-          o .: "base_score"
+    PalParkEncounterArea
+      <$> o .: "base_score"
       <*> o .: "rate"
       <*> o .: "area"
   parseJSON _ = mzero
@@ -1679,8 +1679,8 @@ data PokemonSpeciesVariety
 
 instance FromJSON PokemonSpeciesVariety where
   parseJSON (Object o) =
-    PokemonSpeciesVariety <$>
-          o .: "is_default"
+    PokemonSpeciesVariety
+      <$> o .: "is_default"
       <*> o .: "pokemon"
   parseJSON _ = mzero
 
@@ -1699,8 +1699,8 @@ data Stat
 
 instance FromJSON Stat where
   parseJSON (Object o) =
-    Stat <$>
-          o .: "id"
+    Stat
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "game_index"
       <*> o .: "is_battle_only"
@@ -1719,8 +1719,8 @@ data MoveStatAffectSets
 
 instance FromJSON MoveStatAffectSets where
   parseJSON (Object o) =
-    MoveStatAffectSets <$>
-          o .: "increase"
+    MoveStatAffectSets
+      <$> o .: "increase"
       <*> o .: "decrease"
   parseJSON _ = mzero
 
@@ -1732,8 +1732,8 @@ data MoveStatAffect
 
 instance FromJSON MoveStatAffect where
   parseJSON (Object o) =
-    MoveStatAffect <$>
-          o .: "change"
+    MoveStatAffect
+      <$> o .: "change"
       <*> o .: "move"
   parseJSON _ = mzero
 
@@ -1745,8 +1745,8 @@ data NatureStatAffectSets
 
 instance FromJSON NatureStatAffectSets where
   parseJSON (Object o) =
-    NatureStatAffectSets <$>
-          o .: "increase"
+    NatureStatAffectSets
+      <$> o .: "increase"
       <*> o .: "decrease"
   parseJSON _ = mzero
 
@@ -1765,8 +1765,8 @@ data Type
 
 instance FromJSON Type where
   parseJSON (Object o) =
-    Type <$>
-          o .: "id"
+    Type
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "damage_relations"
       <*> o .: "game_indices"
@@ -1785,8 +1785,8 @@ data TypePokemon
 
 instance FromJSON TypePokemon where
   parseJSON (Object o) =
-    TypePokemon <$>
-          o .: "slot"
+    TypePokemon
+      <$> o .: "slot"
       <*> o .: "pokemon"
   parseJSON _ = mzero
 
@@ -1802,8 +1802,8 @@ data TypeRelations
 
 instance FromJSON TypeRelations where
   parseJSON (Object o) =
-    TypeRelations <$>
-          o .: "no_damage_to"
+    TypeRelations
+      <$> o .: "no_damage_to"
       <*> o .: "half_damage_to"
       <*> o .: "double_damage_to"
       <*> o .: "no_damage_from"
@@ -1823,8 +1823,8 @@ data Language
 
 instance FromJSON Language where
   parseJSON (Object o) =
-    Language <$>
-          o .: "id"
+    Language
+      <$> o .: "id"
       <*> o .: "name"
       <*> o .: "official"
       <*> o .: "iso639"
@@ -1839,8 +1839,8 @@ data APIResource
 
 instance FromJSON APIResource where
   parseJSON (Object o) =
-    APIResource <$>
-          o .: "url"
+    APIResource
+      <$> o .: "url"
   parseJSON _ = mzero
 
 data Description
@@ -1851,8 +1851,8 @@ data Description
 
 instance FromJSON Description where
   parseJSON (Object o) =
-    Description <$>
-          o .: "description"
+    Description
+      <$> o .: "description"
       <*> o .: "language"
   parseJSON _ = mzero
 
@@ -1864,8 +1864,8 @@ data Effect
 
 instance FromJSON Effect where
   parseJSON (Object o) =
-    Effect <$>
-          o .: "effect"
+    Effect
+      <$> o .: "effect"
       <*> o .: "language"
   parseJSON _ = mzero
 
@@ -1880,8 +1880,8 @@ data Encounter
 
 instance FromJSON Encounter where
   parseJSON (Object o) =
-    Encounter <$>
-          o .: "min_level"
+    Encounter
+      <$> o .: "min_level"
       <*> o .: "max_level"
       <*> o .: "condition_values"
       <*> o .: "chance"
@@ -1896,8 +1896,8 @@ data FlavorText
 
 instance FromJSON FlavorText where
   parseJSON (Object o) =
-    FlavorText <$>
-          o .: "flavor_text"
+    FlavorText
+      <$> o .: "flavor_text"
       <*> o .: "language"
   parseJSON _ = mzero
 
@@ -1909,8 +1909,8 @@ data GenerationGameIndex
 
 instance FromJSON GenerationGameIndex where
   parseJSON (Object o) =
-    GenerationGameIndex <$>
-          o .: "game_index"
+    GenerationGameIndex
+      <$> o .: "game_index"
       <*> o .: "generation"
   parseJSON _ = mzero
 
@@ -1922,8 +1922,8 @@ data MachineVersionDetail
 
 instance FromJSON MachineVersionDetail where
   parseJSON (Object o) =
-    MachineVersionDetail <$>
-          o .: "machine"
+    MachineVersionDetail
+      <$> o .: "machine"
       <*> o .: "version_group"
   parseJSON _ = mzero
 
@@ -1935,8 +1935,8 @@ data Name
 
 instance FromJSON Name where
   parseJSON (Object o) =
-    Name <$>
-          o .: "name"
+    Name
+      <$> o .: "name"
       <*> o .: "language"
   parseJSON _ = mzero
 
@@ -1948,8 +1948,8 @@ data NamedAPIResource
 
 instance FromJSON NamedAPIResource where
   parseJSON (Object o) =
-    NamedAPIResource <$>
-          o .: "name"
+    NamedAPIResource
+      <$> o .: "name"
       <*> o .: "url"
   parseJSON _ = mzero
 
@@ -1962,8 +1962,8 @@ data VerboseEffect
 
 instance FromJSON VerboseEffect where
   parseJSON (Object o) =
-    VerboseEffect <$>
-          o .: "effect"
+    VerboseEffect
+      <$> o .: "effect"
       <*> o .: "short_effect"
       <*> o .: "language"
   parseJSON _ = mzero
@@ -1977,8 +1977,8 @@ data VersionEncounterDetail
 
 instance FromJSON VersionEncounterDetail where
   parseJSON (Object o) =
-    VersionEncounterDetail <$>
-          o .: "version"
+    VersionEncounterDetail
+      <$> o .: "version"
       <*> o .: "max_chance"
       <*> o .: "encounter_details"
   parseJSON _ = mzero
@@ -1991,8 +1991,8 @@ data VersionGameIndex
 
 instance FromJSON VersionGameIndex where
   parseJSON (Object o) =
-    VersionGameIndex <$>
-          o .: "game_index"
+    VersionGameIndex
+      <$> o .: "game_index"
       <*> o .: "version"
   parseJSON _ = mzero
 
@@ -2005,8 +2005,8 @@ data VersionGroupFlavorText
 
 instance FromJSON VersionGroupFlavorText where
   parseJSON (Object o) =
-    VersionGroupFlavorText <$>
-          o .: "text"
+    VersionGroupFlavorText
+      <$> o .: "text"
       <*> o .: "language"
       <*> o .: "version_group"
   parseJSON _ = mzero
