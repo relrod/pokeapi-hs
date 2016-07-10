@@ -101,11 +101,18 @@ export (ty', tbl') = do
 
 header :: IO ()
 header = do
+  putStrLn "{-# LANGUAGE TemplateHaskell #-}"
   putStrLn "{-# LANGUAGE OverloadedStrings #-}"
+  putStrLn ""
   putStrLn "-- NOTE! This module is automatically generated!"
   putStrLn "module Games.Pokemon.Pokeapi.Types where"
   putStrLn "import Data.Aeson"
+  putStrLn "import Control.Lens"
   putStrLn "import Control.Monad (mzero)"
+  putStrLn ""
+
+makeFields :: T.Text -> IO ()
+makeFields ty = T.putStrLn $ "makeFields ''" `mappend` ty
 
 main :: IO ()
 main = do
@@ -114,3 +121,4 @@ main = do
   let src = drop 1 $ findTypes text [("", [])]
   header
   mapM_ export src
+  mapM_ (makeFields . renameType . fst) src

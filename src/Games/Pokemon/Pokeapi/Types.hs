@@ -1,8 +1,12 @@
+{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE OverloadedStrings #-}
+
 -- NOTE! This module is automatically generated!
 module Games.Pokemon.Pokeapi.Types where
 import Data.Aeson
+import Control.Lens
 import Control.Monad (mzero)
+
 data APIResourceList
   = APIResourceList {
       aPIResourceList_count :: Integer -- ^ The total number of resources available from this API
@@ -2011,3 +2015,113 @@ instance FromJSON VersionGroupFlavorText where
       <*> o .: "version_group"
   parseJSON _ = mzero
 
+makeFields ''APIResourceList
+makeFields ''NamedAPIResourceList
+makeFields ''Berry
+makeFields ''BerryFlavorMap
+makeFields ''BerryFirmness
+makeFields ''BerryFlavor
+makeFields ''FlavorBerryMap
+makeFields ''ContestType
+makeFields ''ContestName
+makeFields ''ContestEffect
+makeFields ''SuperContestEffect
+makeFields ''EncounterMethod
+makeFields ''EncounterCondition
+makeFields ''EncounterConditionValue
+makeFields ''EvolutionChain
+makeFields ''ChainLink
+makeFields ''EvolutionDetail
+makeFields ''EvolutionTrigger
+makeFields ''Generation
+makeFields ''Pokedex
+makeFields ''PokemonEntry
+makeFields ''Version
+makeFields ''VersionGroup
+makeFields ''Item
+makeFields ''ItemSprites
+makeFields ''ItemHolderPokemon
+makeFields ''ItemHolderPokemonVersionDetail
+makeFields ''ItemAttribute
+makeFields ''ItemCategory
+makeFields ''ItemFlingEffect
+makeFields ''ItemPocket
+makeFields ''Move
+makeFields ''ContestComboSets
+makeFields ''ContestComboDetail
+makeFields ''MoveFlavorText
+makeFields ''MoveMetaData
+makeFields ''MoveStatChange
+makeFields ''PastMoveStatValues
+makeFields ''MoveAilment
+makeFields ''MoveBattleStyle
+makeFields ''MoveCategory
+makeFields ''MoveDamageClass
+makeFields ''MoveLearnMethod
+makeFields ''MoveTarget
+makeFields ''Location
+makeFields ''LocationArea
+makeFields ''EncounterMethodRate
+makeFields ''EncounterVersionDetails
+makeFields ''PokemonEncounter
+makeFields ''PalParkArea
+makeFields ''PalParkEncounterSpecies
+makeFields ''Region
+makeFields ''Ability
+makeFields ''AbilityEffectChange
+makeFields ''AbilityFlavorText
+makeFields ''AbilityPokemon
+makeFields ''Characteristic
+makeFields ''EggGroup
+makeFields ''Gender
+makeFields ''PokemonSpeciesGender
+makeFields ''GrowthRate
+makeFields ''GrowthRateExperienceLevel
+makeFields ''Nature
+makeFields ''NatureStatChange
+makeFields ''MoveBattleStylePreference
+makeFields ''PokeathlonStat
+makeFields ''NaturePokeathlonStatAffectSets
+makeFields ''NaturePokeathlonStatAffect
+makeFields ''Pokemon
+makeFields ''PokemonAbility
+makeFields ''PokemonType
+makeFields ''PokemonHeldItem
+makeFields ''PokemonHeldItemVersion
+makeFields ''PokemonMove
+makeFields ''PokemonMoveVersion
+makeFields ''PokemonStat
+makeFields ''PokemonSprites
+makeFields ''LocationAreaEncounter
+makeFields ''PokemonColor
+makeFields ''PokemonForm
+makeFields ''PokemonFormSprites
+makeFields ''PokemonHabitat
+makeFields ''PokemonShape
+makeFields ''AwesomeName
+makeFields ''PokemonSpecies
+makeFields ''Genus
+makeFields ''PokemonSpeciesDexEntry
+makeFields ''PalParkEncounterArea
+makeFields ''PokemonSpeciesVariety
+makeFields ''Stat
+makeFields ''MoveStatAffectSets
+makeFields ''MoveStatAffect
+makeFields ''NatureStatAffectSets
+makeFields ''Type
+makeFields ''TypePokemon
+makeFields ''TypeRelations
+makeFields ''Language
+makeFields ''APIResource
+makeFields ''Description
+makeFields ''Effect
+makeFields ''Encounter
+makeFields ''FlavorText
+makeFields ''GenerationGameIndex
+makeFields ''MachineVersionDetail
+makeFields ''Name
+makeFields ''NamedAPIResource
+makeFields ''VerboseEffect
+makeFields ''VersionEncounterDetail
+makeFields ''VersionGameIndex
+makeFields ''VersionGroupFlavorText
