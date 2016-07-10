@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import Data.Char (toLower)
+import Data.Char (toLower, toUpper)
 import Data.List (intersperse)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
@@ -36,11 +36,11 @@ processTableLine line =
 
 fieldText :: T.Text -> Field -> T.Text
 fieldText ty (Field i d t) =
-  fixCase ty `mappend` "_" `mappend` rename i `mappend` " :: " `mappend` fieldType `mappend` " -- ^ " `mappend` d
+  fixCase toLower ty `mappend` fixCase toUpper (rename i) `mappend` " :: " `mappend` fieldType `mappend` " -- ^ " `mappend` d
   where
-    fixCase ty =
+    fixCase f ty =
       let first = T.head ty
-      in T.singleton (toLower first) `mappend` T.drop 1 ty
+      in T.singleton (f first) `mappend` T.drop 1 ty
 
     fieldType =
       if nullableField ty i
@@ -49,6 +49,7 @@ fieldText ty (Field i d t) =
 
 rename :: T.Text -> T.Text
 rename "default" = "default'"
+rename "type" = "type'"
 rename x = x
 
 hsType :: T.Text -> T.Text
@@ -102,6 +103,9 @@ export (ty', tbl') = do
 header :: IO ()
 header = do
   putStrLn "{-# LANGUAGE TemplateHaskell #-}"
+  putStrLn "{-# LANGUAGE MultiParamTypeClasses #-}"
+  putStrLn "{-# LANGUAGE FunctionalDependencies #-}"
+  putStrLn "{-# LANGUAGE FlexibleInstances #-}"
   putStrLn "{-# LANGUAGE OverloadedStrings #-}"
   putStrLn ""
   putStrLn "-- NOTE! This module is automatically generated!"
