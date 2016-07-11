@@ -1595,7 +1595,7 @@ data PokemonSpecies
     , pokemonSpeciesEgg_groups :: [NamedAPIResource] -- ^ A list of egg groups this Pokémon species is a member of
     , pokemonSpeciesColor :: NamedAPIResource -- ^ The color of this Pokémon for gimmicky Pokédex search
     , pokemonSpeciesShape :: NamedAPIResource -- ^ The shape of this Pokémon for gimmicky Pokédex search
-    , pokemonSpeciesEvolves_from_species :: NamedAPIResource -- ^ The Pokémon species that evolves into this Pokemon_species
+    , pokemonSpeciesEvolves_from_species :: Maybe NamedAPIResource -- ^ The Pokémon species that evolves into this Pokemon_species
     , pokemonSpeciesEvolution_chain :: APIResource -- ^ The evolution chain this Pokémon species is a member of
     , pokemonSpeciesHabitat :: NamedAPIResource -- ^ The habitat this Pokémon species can be encountered in
     , pokemonSpeciesGeneration :: NamedAPIResource -- ^ The generation this Pokémon species was introduced in
