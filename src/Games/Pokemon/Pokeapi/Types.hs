@@ -1396,7 +1396,7 @@ data PokemonMoveVersion
   = PokemonMoveVersion {
       pokemonMoveVersionMove_learn_method :: NamedAPIResource -- ^ The method by which the move is learned
     , pokemonMoveVersionVersion_group :: NamedAPIResource -- ^ The version group in which the move is learned
-    , pokemonMoveVersionLevel_learned_at :: String -- ^ The minimum level to learn the move
+    , pokemonMoveVersionLevel_learned_at :: Integer -- ^ The minimum level to learn the move
   } deriving (Eq, Ord, Show)
 
 instance FromJSON PokemonMoveVersion where
@@ -1766,7 +1766,7 @@ data Type
     , typeGeneration :: NamedAPIResource -- ^ The generation this type was introduced in
     , typeMove_damage_class :: NamedAPIResource -- ^ The class of damage inflicted by this type
     , typeNames :: [Name] -- ^ The name of this type listed in different languages
-    , typePokemon :: TypePokemon -- ^ A list of details of Pokémon that have this type
+    , typePokemon :: [TypePokemon] -- ^ A list of details of Pokémon that have this type
     , typeMoves :: [NamedAPIResource] -- ^ A list of moves that have this type
   } deriving (Eq, Ord, Show)
 
