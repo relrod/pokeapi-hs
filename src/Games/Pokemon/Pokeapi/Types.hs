@@ -261,7 +261,7 @@ instance FromJSON EncounterConditionValue where
 data EvolutionChain
   = EvolutionChain {
       evolutionChainId :: Integer -- ^ The identifier for this evolution chain resource
-    , evolutionChainBaby_trigger_item :: NamedAPIResource -- ^ The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon
+    , evolutionChainBaby_trigger_item :: Maybe NamedAPIResource -- ^ The item that a Pokémon would be holding when mating that would trigger the egg hatching a baby Pokémon rather than a basic Pokémon
     , evolutionChainChain :: ChainLink -- ^ The base chain link object. Each link contains evolution details for a Pokémon in the chain. Each link references the next Pokémon in the natural evolution order.
   } deriving (Eq, Ord, Show)
 
@@ -292,23 +292,23 @@ instance FromJSON ChainLink where
 
 data EvolutionDetail
   = EvolutionDetail {
-      evolutionDetailItem :: NamedAPIResource -- ^ The item required to cause evolution this into Pokémon species
+      evolutionDetailItem :: Maybe NamedAPIResource -- ^ The item required to cause evolution this into Pokémon species
     , evolutionDetailTrigger :: NamedAPIResource -- ^ The type of event that triggers evolution into this Pokémon species
-    , evolutionDetailGender :: Integer -- ^ The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species
-    , evolutionDetailHeld_item :: NamedAPIResource -- ^ The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this Pokémon species
-    , evolutionDetailKnown_move :: NamedAPIResource -- ^ The move that must be known by the evolving Pokémon species during the evolution trigger event in order to evolve into this Pokémon species
-    , evolutionDetailKnown_move_type :: NamedAPIResource -- ^ The evolving Pokémon species must know a move with this type during the evolution trigger event in order to evolve into this Pokémon species
-    , evolutionDetailLocation :: NamedAPIResource -- ^ The location the evolution must be triggered at.
+    , evolutionDetailGender :: Maybe Integer -- ^ The id of the gender of the evolving Pokémon species must be in order to evolve into this Pokémon species
+    , evolutionDetailHeld_item :: Maybe NamedAPIResource -- ^ The item the evolving Pokémon species must be holding during the evolution trigger event to evolve into this Pokémon species
+    , evolutionDetailKnown_move :: Maybe NamedAPIResource -- ^ The move that must be known by the evolving Pokémon species during the evolution trigger event in order to evolve into this Pokémon species
+    , evolutionDetailKnown_move_type :: Maybe NamedAPIResource -- ^ The evolving Pokémon species must know a move with this type during the evolution trigger event in order to evolve into this Pokémon species
+    , evolutionDetailLocation :: Maybe NamedAPIResource -- ^ The location the evolution must be triggered at.
     , evolutionDetailMin_level :: Integer -- ^ The minimum required level of the evolving Pokémon species to evolve into this Pokémon species
-    , evolutionDetailMin_happiness :: Integer -- ^ The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species
-    , evolutionDetailMin_beauty :: Integer -- ^ The minimum required level of beauty the evolving Pokémon species to evolve into this Pokémon species
-    , evolutionDetailMin_affection :: Integer -- ^ The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species
+    , evolutionDetailMin_happiness :: Maybe Integer -- ^ The minimum required level of happiness the evolving Pokémon species to evolve into this Pokémon species
+    , evolutionDetailMin_beauty :: Maybe Integer -- ^ The minimum required level of beauty the evolving Pokémon species to evolve into this Pokémon species
+    , evolutionDetailMin_affection :: Maybe Integer -- ^ The minimum required level of affection the evolving Pokémon species to evolve into this Pokémon species
     , evolutionDetailNeeds_overworld_rain :: Bool -- ^ Whether or not it must be raining in the overworld to cause evolution this Pokémon species
-    , evolutionDetailParty_species :: NamedAPIResource -- ^ The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into this Pokémon species
-    , evolutionDetailParty_type :: NamedAPIResource -- ^ The player must have a Pokémon of this type in their party during the evolution trigger event in order for the evolving Pokémon species to evolve into this Pokémon species
-    , evolutionDetailRelative_physical_stats :: Integer -- ^ The required relation between the Pokémon's Attack and Defense stats. 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack < Defense.
+    , evolutionDetailParty_species :: Maybe NamedAPIResource -- ^ The Pokémon species that must be in the players party in order for the evolving Pokémon species to evolve into this Pokémon species
+    , evolutionDetailParty_type :: Maybe NamedAPIResource -- ^ The player must have a Pokémon of this type in their party during the evolution trigger event in order for the evolving Pokémon species to evolve into this Pokémon species
+    , evolutionDetailRelative_physical_stats :: Maybe Integer -- ^ The required relation between the Pokémon's Attack and Defense stats. 1 means Attack > Defense. 0 means Attack = Defense. -1 means Attack < Defense.
     , evolutionDetailTime_of_day :: String -- ^ The required time of day. Day or night.
-    , evolutionDetailTrade_species :: NamedAPIResource -- ^ Pokémon species for which this one must be traded.
+    , evolutionDetailTrade_species :: Maybe NamedAPIResource -- ^ Pokémon species for which this one must be traded.
     , evolutionDetailTurn_upside_down :: Bool -- ^ Whether or not the 3DS needs to be turned upside-down as this Pokémon levels up.
   } deriving (Eq, Ord, Show)
 

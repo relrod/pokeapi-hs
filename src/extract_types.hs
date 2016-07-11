@@ -70,19 +70,20 @@ renameType x
   | otherwise = x
 
 nullableField :: T.Text -> T.Text -> Bool
-nullableField "EvolutionDetails" "min_beauty" = True
-nullableField "EvolutionDetails" "gender" = True
-nullableField "EvolutionDetails" "relative_physical_stats" = True
-nullableField "EvolutionDetails" "item" = True
-nullableField "EvolutionDetails" "known_move_type" = True
-nullableField "EvolutionDetails" "min_affection" = True
-nullableField "EvolutionDetails" "party_type" = True
-nullableField "EvolutionDetails" "trade_species" = True
-nullableField "EvolutionDetails" "party_species" = True
-nullableField "EvolutionDetails" "min_happiness" = True
-nullableField "EvolutionDetails" "held_item" = True
-nullableField "EvolutionDetails" "known_move" = True
-nullableField "EvolutionDetails" "location" = True
+nullableField "EvolutionChain" "baby_trigger_item" = True
+nullableField "EvolutionDetail" "min_beauty" = True
+nullableField "EvolutionDetail" "gender" = True
+nullableField "EvolutionDetail" "relative_physical_stats" = True
+nullableField "EvolutionDetail" "item" = True
+nullableField "EvolutionDetail" "known_move_type" = True
+nullableField "EvolutionDetail" "min_affection" = True
+nullableField "EvolutionDetail" "party_type" = True
+nullableField "EvolutionDetail" "trade_species" = True
+nullableField "EvolutionDetail" "party_species" = True
+nullableField "EvolutionDetail" "min_happiness" = True
+nullableField "EvolutionDetail" "held_item" = True
+nullableField "EvolutionDetail" "known_move" = True
+nullableField "EvolutionDetail" "location" = True
 nullableField "PokemonSpecies" "evolves_from_species" = True
 nullableField "PokemonSprites" "front_female" = True
 nullableField "PokemonSprites" "front_shiny_female" = True
