@@ -70,10 +70,6 @@ renameType x
   | otherwise = x
 
 nullableField :: T.Text -> T.Text -> Bool
-nullableField "PokemonSprites" "front_female" = True
-nullableField "PokemonSprites" "front_shiny_female" = True
-nullableField "PokemonSprites" "back_female" = True
-nullableField "PokemonSprites" "back_shiny_female" = True
 nullableField "EvolutionDetails" "min_beauty" = True
 nullableField "EvolutionDetails" "gender" = True
 nullableField "EvolutionDetails" "relative_physical_stats" = True
@@ -87,6 +83,11 @@ nullableField "EvolutionDetails" "min_happiness" = True
 nullableField "EvolutionDetails" "held_item" = True
 nullableField "EvolutionDetails" "known_move" = True
 nullableField "EvolutionDetails" "location" = True
+nullableField "PokemonSpecies" "evolves_from_species" = True
+nullableField "PokemonSprites" "front_female" = True
+nullableField "PokemonSprites" "front_shiny_female" = True
+nullableField "PokemonSprites" "back_female" = True
+nullableField "PokemonSprites" "back_shiny_female" = True
 nullableField _ _ = False
 
 generateFromJsonInstance :: T.Text -> [Field] -> IO ()
